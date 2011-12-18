@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css?3">
+		</link> <script type="text/javascript" src="/_ah/channel/jsapi"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<center>
+			<div class="container">
+				<p class="vote_count">
+					There are <span id="votes">{{ count }}</span> votes
+				</p>
+				
+				<p class="help">
+					How to vote:
+					
+					<ul>
+						<li>Call: 1-902-900-3551</li>
+						<li>Text "KISS" to 1-902-900-3551</li>
+					</ul> 
+				</p>
+			</div>
+		</center>
+		<script>
+			var onOpened = function() {
+			}
+			var onMessage = function(msg) {
+				$("#votes").html(msg.data);
+			}
+			var onError = function(err) {
+				window.location.reload()
+			}
+			var onClose = function() {
+				window.location.reload()
+			}
+			channel = new goog.appengine.Channel('{{ token }}');
+			socket = channel.open();
+			socket.onopen = onOpened;
+			socket.onmessage = onMessage;
+			socket.onerror = onError;
+			socket.onclose = onClose;
+
+		</script>
+	</body>
+</html>

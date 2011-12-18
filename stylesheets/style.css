@@ -1,0 +1,35 @@
+/* @override http://localhost:8080/stylesheets/style.css */
+
+	body {
+		padding: 16px;
+		margin: 0;
+		font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+		background-image: url(/stylesheets/background.jpg);
+		background-repeat: no-repeat;
+		background-position: bottom left;
+	}
+
+@media all and (min-width: 900px) {
+	body {
+		padding: 16px 16px 16px 500px;
+	}	
+}
+
+.container {
+	text-align: left;
+	padding: 16px;
+	background-color: rgba(255,238,241,0.9);
+	border-radius: 32px;
+}
+
+.vote_count {
+	font-size: 2em;
+}
+
+#votes {
+	color: #ffb6c1;
+	font-weight: bold;
+	font-size: 3em;
+	-webkit-text-stroke: 2px #000;
+	text-shadow: 6px 6px 0px #000;
+}
